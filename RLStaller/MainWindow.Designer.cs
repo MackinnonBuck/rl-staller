@@ -39,6 +39,7 @@
             this.airSteerButton = new System.Windows.Forms.Button();
             this.airRollButton = new System.Windows.Forms.Button();
             this.jumpButton = new System.Windows.Forms.Button();
+            this.refreshButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // controllerComboBox
@@ -50,7 +51,7 @@
             this.controllerComboBox.FormattingEnabled = true;
             this.controllerComboBox.Location = new System.Drawing.Point(12, 33);
             this.controllerComboBox.Name = "controllerComboBox";
-            this.controllerComboBox.Size = new System.Drawing.Size(206, 21);
+            this.controllerComboBox.Size = new System.Drawing.Size(136, 21);
             this.controllerComboBox.TabIndex = 0;
             this.controllerComboBox.SelectedIndexChanged += new System.EventHandler(this.ControllerSelectedIndexChanged);
             // 
@@ -167,11 +168,22 @@
             this.jumpButton.KeyDown += new System.Windows.Forms.KeyEventHandler(this.BindButtonKeyDown);
             this.jumpButton.Leave += new System.EventHandler(this.BindButtonLeave);
             // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(154, 32);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(64, 23);
+            this.refreshButton.TabIndex = 12;
+            this.refreshButton.Text = "Refresh";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.RefreshButtonClick);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(230, 231);
+            this.Controls.Add(this.refreshButton);
             this.Controls.Add(this.jumpButton);
             this.Controls.Add(this.airRollButton);
             this.Controls.Add(this.airSteerButton);
@@ -207,6 +219,7 @@
         private System.Windows.Forms.Button airSteerButton;
         private System.Windows.Forms.Button airRollButton;
         private System.Windows.Forms.Button jumpButton;
+        private System.Windows.Forms.Button refreshButton;
     }
 }
 

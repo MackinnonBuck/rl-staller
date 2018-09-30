@@ -11,7 +11,7 @@ namespace RLStaller
     {
         private const int MaxControllers = 4;
         private const int NumBindings = 3;
-        private const int UpdateRate = 1;
+        private const int UpdateDelay = 1;
 
         private Properties.Settings settings;
 
@@ -132,7 +132,7 @@ namespace RLStaller
                 lock (updateLock)
                     UpdateController();
 
-                Thread.Sleep(UpdateRate);
+                Thread.Sleep(UpdateDelay);
             }
         }
 
@@ -206,8 +206,26 @@ namespace RLStaller
             {
                 selectedController =
                     (Controller)controllerComboBox.SelectedItem;
-                notFoundLabel.Visible = !selectedController.IsConnected;
+                RefreshControllerStatus();
             }
+        }
+
+        /// <summary>
+        /// Refreshes the active controller status when the refresh button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RefreshButtonClick(object sender, EventArgs e)
+        {
+            RefreshControllerStatus();
+        }
+
+        /// <summary>
+        /// Refreshes the status of the selected controller.
+        /// </summary>
+        private void RefreshControllerStatus()
+        {
+            notFoundLabel.Visible = !selectedController.IsConnected;
         }
 
         /// <summary>
@@ -253,5 +271,5 @@ namespace RLStaller
         {
             RefreshBindingButtton((Button)sender);
         }
-    }
+   }
 }
